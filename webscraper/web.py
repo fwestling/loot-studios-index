@@ -26,12 +26,12 @@ def process(url, label):
 
     # Find the <title> tag and return the text in it
     title = soup.find("title")
-    print(title)
     name = title.get_text()
 
     result = {}
     result["collection"] = label
     result["date"] = date
+    result["url"] = url
     result["name"] = name
     result["minis"] = []
 
@@ -48,7 +48,8 @@ def process(url, label):
             if attr == "mini":
                 continue
             miniData[attr] = mini.attrs[attr]
-
+        img = mini.find("img")
+        miniData["img"] = img.attrs["src"]
         result["minis"].append(miniData)
 
     return result
@@ -64,8 +65,8 @@ if __name__ == "__main__":
     result = []
 
     for urls_path in files:
-        # Label is the name of the urls file
-        label = urls_path.split("/")[-1].split(".")[0]
+        # Label is the name of the urls file without the folder_path
+        label = urls_path.replace(folder_path + "/", "").replace(".txt", "")
 
         # The urls file should contain one url per line
         # Read the urls file and store the urls in a list
