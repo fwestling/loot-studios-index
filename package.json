@@ -7,7 +7,7 @@
   "homepage": "https://fwestling.github.io/loot-studios-index",
   "scripts": {
     "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "scrape": "cd webscraper && python web.py urls > ../src/data.json",
     "build": "tsc && vite build",

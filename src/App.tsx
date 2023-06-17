@@ -5,9 +5,9 @@ import DataProvider from "./features/data/provider";
 import ColoredThemeProvider from "./features/theme/provider";
 import FacetSearch from "./features/search/FacetSearch";
 import MiniTable from "./features/minis/MiniTable";
-import PagerProvider, { PagerContext } from "./features/pager/provider";
+import PagerProvider from "./features/pager/provider";
 
-function App() {
+function App(): React.ReactNode {
   return (
     <ColoredThemeProvider>
       <DataProvider>

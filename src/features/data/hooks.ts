@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { DataContext, IDataContext } from "./provider";
 import { DecoratedMini } from "./loot.types";
+import { DataContext } from "./provider";
 
 export const useLoots = () => {
   const context = useContext(DataContext);
@@ -63,7 +63,6 @@ export const useSearchedMinis = (search: string) => {
 
 export const useCollections = () => {
   const loots = useLoots();
-  const minis = useFilteredMinis("collections");
   return loots
     .map((loot) => loot.collection.replace("urls\\", ""))
     .filter((x) => x)

@@ -12,7 +12,7 @@ import List from "@mui/material/List";
 import FacetSelector from "./FacetSelector";
 import Button from "@mui/material/Button";
 
-const FacetSearch = () => {
+const FacetSearch = (): React.ReactNode => {
   const [_, setFilters] = useFilter();
   const races = useRaces();
   const classes = useClasses();

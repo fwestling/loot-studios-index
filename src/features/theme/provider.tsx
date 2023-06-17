@@ -1,8 +1,7 @@
 import CssBaseline from "@mui/material/CssBaseline";
 import ThemeProvider from "@mui/material/styles/ThemeProvider";
 import createTheme from "@mui/material/styles/createTheme";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import React, { useEffect } from "react";
+import React from "react";
 
 interface IColorModeContext {
   toggleColorMode: () => void;
@@ -21,7 +20,7 @@ interface ColoredThemeProviderProps {
 export default function ColoredThemeProvider({
   children,
 }: ColoredThemeProviderProps) {
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  // const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
   const [mode, setMode] = React.useState<"light" | "dark">("dark");
   // useEffect(

@@ -43,18 +43,14 @@ const PagerProvider = ({ children }: PagerProviderProps) => {
   return (
     <PagerContext.Provider value={{ open, close }}>
       {children}
-      <Modal
-        open={isOpen}
-        onClose={close}
-        sx={(theme) => ({ padding: "auto" })}
-      >
+      <Modal open={isOpen} onClose={close} sx={{ padding: "auto" }}>
         <Paper
-          sx={(theme) => ({
+          sx={{
             backgroundColor: "black",
             height: "90vh",
             width: "90vw",
             margin: "auto",
-          })}
+          }}
         >
           <IconButton
             sx={{ position: "absolute", right: 4, top: 4 }}
