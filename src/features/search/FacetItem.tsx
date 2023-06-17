@@ -12,12 +12,19 @@ import CountBadge from "./CountBadge";
 type Props = {
   count: number;
   label: string;
+  defaultValue: boolean;
   onSelect: () => void;
   onDeselect: () => void;
 };
 
-const FacetItem = ({ count, label, onSelect, onDeselect }: Props) => {
-  const [checked, setChecked] = React.useState<boolean>(false);
+const FacetItem = ({
+  count,
+  label,
+  defaultValue,
+  onSelect,
+  onDeselect,
+}: Props) => {
+  const [checked, setChecked] = React.useState<boolean>(defaultValue);
 
   const handleToggle = React.useCallback(() => {
     const nextValue = !checked;
@@ -33,7 +40,7 @@ const FacetItem = ({ count, label, onSelect, onDeselect }: Props) => {
       }
       disablePadding
     >
-      <ListItemButton>
+      <ListItemButton onClick={handleToggle}>
         <ListItemAvatar>
           <CountBadge count={count} />
         </ListItemAvatar>

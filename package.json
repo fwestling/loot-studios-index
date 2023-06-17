@@ -3,7 +3,11 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
+  "license": "MIT",
+  "homepage": "https://fwestling.github.io/loot-studios-index",
   "scripts": {
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
     "dev": "vite",
     "scrape": "cd webscraper && python web.py urls > ../src/data.json",
     "build": "tsc && vite build",
@@ -16,6 +20,7 @@
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.5",
     "@mui/x-data-grid": "^6.8.0",
+    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-virtuoso": "^4.3.10"
@@ -31,6 +36,5 @@
     "eslint-plugin-react-refresh": "^0.3.4",
     "typescript": "^5.0.2",
     "vite": "^4.3.9"
-  },
-  "license": "MIT"
+  }
 }

@@ -1,6 +1,4 @@
-import Avatar from "@mui/material/Avatar";
-import Badge from "@mui/material/Badge";
-import React from "react";
+import Chip from "@mui/material/Chip";
 
 function stringToColor(string: string) {
   let hash = 0;
@@ -27,11 +25,7 @@ type Props = {
 };
 
 const CountBadge = ({ count }: Props) => {
-  return (
-    <Badge variant="standard" color="primary">
-      {count}
-    </Badge>
-  );
+  return <Chip color="primary" label={count} />;
 };
 
 export default CountBadge;

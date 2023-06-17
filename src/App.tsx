@@ -5,15 +5,26 @@ import DataProvider from "./features/data/provider";
 import ColoredThemeProvider from "./features/theme/provider";
 import FacetSearch from "./features/search/FacetSearch";
 import MiniTable from "./features/minis/MiniTable";
+import PagerProvider, { PagerContext } from "./features/pager/provider";
 
 function App() {
   return (
     <ColoredThemeProvider>
       <DataProvider>
-        <Box sx={{ display: "flex" }}>
-          <FacetSearch />
-          <MiniTable />
-        </Box>
+        <PagerProvider>
+          <Box
+            sx={{
+              display: "flex",
+              gap: 2,
+              width: "100%",
+              height: "100%",
+              overflow: "auto",
+            }}
+          >
+            <FacetSearch />
+            <MiniTable />
+          </Box>
+        </PagerProvider>
       </DataProvider>
     </ColoredThemeProvider>
   );

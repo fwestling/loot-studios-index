@@ -2,6 +2,7 @@ export type Loot = {
   collection: string;
   date: string;
   name: string;
+  url: string;
   minis: Mini[];
 };
 

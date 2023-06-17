@@ -23,11 +23,11 @@ export default function ColoredThemeProvider({
 }: ColoredThemeProviderProps) {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
-  const [mode, setMode] = React.useState<"light" | "dark">("light");
-  useEffect(
-    () => setMode(prefersDarkMode ? "dark" : "light"),
-    [prefersDarkMode]
-  );
+  const [mode, setMode] = React.useState<"light" | "dark">("dark");
+  // useEffect(
+  //   () => setMode(prefersDarkMode ? "dark" : "light"),
+  //   [prefersDarkMode]
+  // );
 
   const colorMode = React.useMemo(
     () => ({
@@ -43,6 +43,13 @@ export default function ColoredThemeProvider({
       createTheme({
         palette: {
           mode,
+          background: {
+            default: mode === "light" ? "#fff" : "#1C1C1C",
+            paper: mode === "light" ? "#fff" : "#black",
+          },
+          primary: {
+            main: "#CD2D1E",
+          },
         },
       }),
     [mode]
@@ -50,7 +57,6 @@ export default function ColoredThemeProvider({
 
   return (
     <ColorModeContext.Provider value={colorMode}>
-      <span>Test</span>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         {children}

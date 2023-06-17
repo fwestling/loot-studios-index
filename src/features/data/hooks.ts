@@ -65,13 +65,15 @@ export const useCollections = () => {
   const loots = useLoots();
   const minis = useFilteredMinis("collections");
   return loots
-    .map((loot) => loot.collection)
+    .map((loot) => loot.collection.replace("urls\\", ""))
     .filter((x) => x)
     .map((collection, _i, self) => ({
-      collection,
+      label: collection,
       count: self.filter((x) => x === collection).length,
     }))
-    .filter((collection, index, self) => self.indexOf(collection) === index);
+    .filter(
+      (x, index, arr) => arr.findIndex((y) => y.label === x.label) === index
+    );
 };
 
 export const useRoles = () => {
@@ -80,11 +82,11 @@ export const useRoles = () => {
     .map(({ role }) => role)
     .filter((x) => x)
     .map((role, _i, arr) => ({
-      role,
+      label: role,
       count: arr.filter((x) => x === role).length,
     }))
     .filter(
-      (x, index, arr) => arr.findIndex((y) => y.role === x.role) === index
+      (x, index, arr) => arr.findIndex((y) => y.label === x.label) === index
     );
 };
 
@@ -94,11 +96,11 @@ export const useRaces = () => {
     .map(({ race }) => race)
     .filter((x) => x)
     .map((race, _i, arr) => ({
-      race,
+      label: race,
       count: arr.filter((x) => x === race).length,
     }))
     .filter(
-      (x, index, arr) => arr.findIndex((y) => y.race === x.race) === index
+      (x, index, arr) => arr.findIndex((y) => y.label === x.label) === index
     );
 };
 
@@ -108,11 +110,11 @@ export const useSizes = () => {
     .map(({ size }) => size)
     .filter((x) => x)
     .map((size, _i, arr) => ({
-      size,
+      label: size,
       count: arr.filter((x) => x === size).length,
     }))
     .filter(
-      (x, index, arr) => arr.findIndex((y) => y.size === x.size) === index
+      (x, index, arr) => arr.findIndex((y) => y.label === x.label) === index
     );
 };
 
@@ -122,10 +124,10 @@ export const useClasses = () => {
     .map(({ iclass }) => iclass)
     .filter((x) => x)
     .map((iclass, _i, arr) => ({
-      iclass,
+      label: iclass,
       count: arr.filter((x) => x === iclass).length,
     }))
     .filter(
-      (x, index, arr) => arr.findIndex((y) => y.iclass === x.iclass) === index
+      (x, index, arr) => arr.findIndex((y) => y.label === x.label) === index
     );
 };
