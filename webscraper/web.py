@@ -18,7 +18,7 @@ def process(url, label):
     # and set the href attribute value to a variable
     link = soup.find(
         "img",
-        src=lambda x: x and x.startswith("https://lootstudios.com/wp-content/uploads"),
+        src=lambda x: x and x.startswith("https://site.lootstudios.com/wp-content/uploads"),
     )["src"]
     # From link, extract the section of the link matching regex [0-9]{4}/[0-9]{2}
     # and set it to a variable

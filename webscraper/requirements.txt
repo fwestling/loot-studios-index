@@ -1,4 +1,2 @@
-glob
-re
 requests
 bs4
